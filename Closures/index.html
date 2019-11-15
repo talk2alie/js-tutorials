@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Closures</title>
+</head>
+<body>
+    <p id="original"></p>
+    <p id="reversed"></p>
+
+    <script>
+        let numbers = [1,2,3,4];
+
+        let original = document.getElementById('original');
+        let reversed = document.getElementById('reversed');
+
+        original.innerHTML = '' + numbers;
+
+        function reverse(list) {
+            let front = 0;
+            let back = list.length - 1;
+
+            while(front < back) {
+                let left = list[front];
+                list[front] = list[back]; 
+                list[back] = left;
+
+                front++;
+                back--;
+            }
+        }
+
+        reverse(numbers);
+        reversed.innerHTML = numbers;
+
+    </script>
+</body>
+</html>

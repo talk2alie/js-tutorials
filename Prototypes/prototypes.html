@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Learning Prototypes</title>
+</head>
+<body>
+    <output id="result">
+        Hi there
+    </output>
+
+    <script>
+        function Person() {
+            
+        }
+
+        Person.prototype.toString = function() {
+            return this.firstName + ' ' + this.lastName;
+        }
+
+        function Student(firstName, lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+        Student.prototype = Person;
+
+        let student = new Student('Mohamed', 'Pussah');
+
+        let output = document.getElementById('result');
+        output.innerHTML = student.toString();
+    </script>
+</body>
+</html>
