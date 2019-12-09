@@ -20,7 +20,13 @@
         canvas {
             border: solid 1px black;
         }
+
+        form div {
+            margin-top: 15px;
+        }
     </style>
+
+
 </head>
 
 <body>
@@ -29,6 +35,42 @@
             <h1>Canvas Here</h1>
             <canvas id="lookWhatIDrew" width="600" height="200">
             </canvas>
+
+            <form>
+                <div>
+                    <label for="shapes">Select a shape:</label> <br>
+                    <select name="shapes" id="shapes">
+                        <option value="not selected" selected>Select...</option>
+                        <option value="circles">Circles</option>
+                        <option value="squares">Squares</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="shapeColor">Select a color for the shapes:</label><br>
+                    <select name="shapeColor" id="shapeColor">
+                        <option value="black" selected>Black</option>
+                        <option value="red">Red</option>
+                        <option value="skyblue">Sky Blue</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="tweets">Select a tweet:</label><br>
+                    <select name="tweets" id="tweets">
+                        <option value="not selected" selected>Select...</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="textColor">Select a color for the text:</label><br>
+                    <select name="textColor" id="textColor">
+                        <option value="red" selected>Red</option>
+                        <option value="yellow">Yellow</option>
+                        <option value="skyblue">Sky Blue</option>
+                    </select>
+                </div>
+                <div>
+                    <button id="previewButton" class="btn btn-primary">Preview</button>
+                </div>
+            </form>
         </div>
     </main>
 
