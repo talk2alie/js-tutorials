@@ -11,13 +11,51 @@ window.onload = () => {
 
         let canvas = document.getElementById('lookWhatIDrew');
         let context = canvas.getContext('2d');
-        
-        // clearCanvas(canvas, context);
+        clearCanvas(canvas, context);
+
+        const maxShapes = 60;
 
         context.fillStyle = selectedShapeColor;
-        drawRandomSquare(canvas, context);
+        if(selectedShape == 'squares') {
+            for (let i = 0; i < maxShapes; i++) {
+                drawRandomSquare(canvas, context);           
+            }
+        } else if (selectedShape == 'circles') {
+            for (let i = 0; i < maxShapes; i++) {
+                drawRandomCircle(canvas, context);                
+            }
+        }
+
+        context.fillStyle = selectedTextColor;
+        drawText(selectedTweet, canvas, context);
     };
 };
+
+function drawText(text, canvas, context) {
+
+    context.textAlign = 'left';
+    context.font = 'bold 1em Calibri';
+    context.fillText('I saw this tweet:', 10, 20);
+
+    
+    context.textAlign = 'center';
+    context.font = 'bold 2em Calibri';
+    context.fillText(text, canvas.width / 2, canvas.height / 2, canvas.width - 40);
+
+    context.textAlign = 'right';
+    context.font = 'bold 1em Calibri';
+    context.fillText('And all I got is this lousy t-shirt!', canvas.width - 10, canvas.height - 10);
+}
+
+function drawRandomCircle(canvas, context) {
+    let xCoordinate = Math.floor(Math.random() * canvas.width);
+    let yCoordinate = Math.floor(Math.random() * canvas.height);
+    let radius = Math.floor(Math.random() * 8) + 4;
+
+    context.beginPath();
+    context.arc(xCoordinate, yCoordinate, radius, 0, 6.28318531);
+    context.fill();
+}
 
 function clearCanvas(canvas, context) {
     context.fillStyle = '#ffffff';
